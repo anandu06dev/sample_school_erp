@@ -12,7 +12,7 @@
 
 ## Description
 
-Built using [Nest](https://github.com/nestjs/nest),[TypeORM](https://typeorm.io/#/),[Swagger](https://swagger.io/),[Compodoc](https://compodoc.app/).
+Built using [Nest](https://github.com/nestjs/nest), [TypeORM](https://typeorm.io/#/), [Swagger](https://swagger.io/), [Compodoc](https://compodoc.app/), [MySql](https://www.mysql.com/), [Jest](https://jestjs.io/), [Typescript](https://www.typescriptlang.org/), [Prettier](https://prettier.io/), [ES Lint](https://eslint.org/)
 
 ## Installation
 
@@ -24,10 +24,7 @@ $ npm install
 
 ```bash
 # development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
+$ npm run server
 
 # production mode
 $ npm run start:prod
@@ -35,8 +32,19 @@ $ npm run start:prod
 # run client 
 $ npm run client
 
+
 # code documentation mode
 $ npm run doc:server
+```
+
+
+## Lint
+```bash
+# run lint for server
+$ npm run lint:server
+
+# run lint for server
+$ npm run lint:client
 ```
 
 ## Test
@@ -61,17 +69,11 @@ To access generated urls after triggering corresponding commands
 
 | Plugin | README |
 | ------ | ------ |
-| Angular-ui | [Angular UI](https://avatars.githubusercontent.com/u/139426?s=200&v=4) |
+| Angular-ui | [Angular UI](http://localhost:4200) |
+| Swagger | [Swagger Api doc](http://localhost:3000/api) |
+| Server Code Document | [Server Code Documents](http://localhost:8080) |
 
-## Support
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
 
 ## License
 
