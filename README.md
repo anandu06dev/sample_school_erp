@@ -52,6 +52,17 @@ $ npm run test:e2e
 $ npm run test:cov
 ```
 
+
+
+
+## Access URL'S
+
+To access generated urls after triggering corresponding commands
+
+| Plugin | README |
+| ------ | ------ |
+| Angular-ui | [Angular UI](https://avatars.githubusercontent.com/u/139426?s=200&v=4) |
+
 ## Support
 
 Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
