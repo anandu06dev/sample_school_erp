@@ -1,5 +1,8 @@
 <p align="center">
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo_text.svg" width="320" alt="Nest Logo" /></a>
+  </p>
+  <p align="center">
+    <a href="http://angular.io/" target="blank"><img src="https://avatars.githubusercontent.com/u/139426?s=200&v=4" width="320" alt="Angular Logo" /></a>
 </p>
 
 [circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
@@ -29,7 +32,7 @@ $ npm run server
 # production mode
 $ npm run start:prod
 
-# run client 
+# run client
 $ npm run client
 
 
@@ -37,8 +40,8 @@ $ npm run client
 $ npm run doc:server
 ```
 
-
 ## Lint
+
 ```bash
 # run lint for server
 $ npm run lint:server
@@ -60,20 +63,15 @@ $ npm run test:e2e
 $ npm run test:cov
 ```
 
-
-
-
 ## Access URL'S
 
 To access generated urls after triggering corresponding commands
 
-| Plugin | README |
-| ------ | ------ |
-| Angular-ui | [Angular UI](http://localhost:4200) |
-| Swagger | [Swagger Api doc](http://localhost:3000/api) |
+| Plugin               | README                                         |
+| -------------------- | ---------------------------------------------- |
+| Angular-ui           | [Angular UI](http://localhost:4200)            |
+| Swagger              | [Swagger Api doc](http://localhost:3000/api)   |
 | Server Code Document | [Server Code Documents](http://localhost:8080) |
-
-
 
 ## License
 
