@@ -31,6 +31,12 @@ $ npm run start:dev
 
 # production mode
 $ npm run start:prod
+
+# run client 
+$ npm run client
+
+# code documentation mode
+$ npm run doc:server
 ```
 
 ## Test
