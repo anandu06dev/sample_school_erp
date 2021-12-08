@@ -1,5 +1,5 @@
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger'
-import { Gender, StudentCommunity } from '@shared/enum'
+import { Gender, StudentCommunity } from '../enums/enum'
 import {
     IsDate,
     IsEnum,
@@ -10,15 +10,6 @@ import {
 } from 'class-validator'
 
 export class UpdateStudentDto {
-    @ApiProperty({
-        example: 1,
-        type: 'number',
-        description: 'Admission Id is auto incremented',
-    })
-    @IsNumber()
-    @IsNotEmpty()
-    admissionnId: number
-
     @ApiPropertyOptional({
         example: '20-12-2021',
         type: 'date',
@@ -83,11 +74,9 @@ export class UpdateStudentDto {
         enum: Gender,
         enumName: 'Gender',
         example: 'Male',
-        type: 'string',
         description:
             'Describe about student gender type such as male or female',
     })
-    @IsString()
     @IsNotEmpty()
     @IsOptional()
     @IsEnum(Gender)
@@ -117,10 +106,8 @@ export class UpdateStudentDto {
         example: 'XXX',
         description: "Describes about student's sub caste name",
         enum: StudentCommunity,
-        type: 'string',
         enumName: 'StudentCommunity',
     })
-    @IsString()
     @IsNotEmpty()
     @IsOptional()
     @IsEnum(StudentCommunity)

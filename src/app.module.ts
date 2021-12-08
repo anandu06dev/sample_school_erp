@@ -1,28 +1,14 @@
 import { Module } from '@nestjs/common'
-import { ConfigService } from '@nestjs/config'
-import { TypeOrmModule } from '@nestjs/typeorm'
+
 import { AppController } from './app.controller'
 import { AppService } from './app.service'
-import { CoreModule } from '@core/core.module'
-// import { CatsModule } from './swagger_example/cats.module';
-import { dbConfigSetUp as DBconfig } from '@utils/shareDBcofig.factory'
 import { StudentsModule } from '@resources/students/students.module'
+import { DatabaseModule } from '@core/database.module'
 
-const MODULES = [
-    CoreModule,
-    // UsersModule,
-    // ConfigModule,
-    // UsersModule,
-    StudentsModule,
-]
-const TYPEORMMODULE = TypeOrmModule.forRootAsync({
-    imports: [StudentsModule],
-    inject: [ConfigService],
-    useFactory: (configService: ConfigService) => DBconfig(configService),
-})
+const MODULES = [DatabaseModule, StudentsModule]
 
 @Module({
-    imports: [TYPEORMMODULE, ...MODULES],
+    imports: [...MODULES],
     controllers: [AppController],
     providers: [AppService],
 })
