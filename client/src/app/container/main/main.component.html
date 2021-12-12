@@ -1,0 +1,78 @@
+<app-sidenav [togglesidebar]="toggleSidebar">
+    <div menu fxLayout="column" fxLayoutAlign="space-evenly center">
+        <img class="avatar mat-elevation-z8" class="rounded-circle text-center" width="100" height="100"
+            src="https://www.jea.com/cdn/images/avatar/avatar-alt.svg" />
+
+        <h4 class="name">{{username}}</h4>
+        <p class="designation">{{role}}</p>
+
+        <mat-divider></mat-divider>
+
+        <button mat-button class="menu-button">
+            <mat-icon>view_module</mat-icon>
+            <span>Dashboard</span>
+        </button>
+        <button mat-button class="menu-button">
+            <mat-icon>person</mat-icon>
+            <span>Students</span>
+        </button>
+        <button mat-button class="menu-button">
+            <mat-icon>assessment</mat-icon>
+            <span>Fees</span>
+        </button>
+        <button mat-button class="menu-button">
+            <mat-icon>wc</mat-icon>
+            
+            <span>Parents</span>
+        </button>
+
+        <button mat-button class="menu-button">
+            <mat-icon>people</mat-icon>
+            
+            <span>Siblings</span>
+        </button>
+
+
+        <mat-divider></mat-divider>
+
+        <button mat-button class="menu-button">
+            <mat-icon>help</mat-icon>
+            <span>Help</span>
+        </button>
+    </div>
+
+
+    <h1 toolbartitle>
+        <button mat-button (click)="toggleNavbar($event);">
+
+            <mat-icon>menu_icon</mat-icon>
+        </button>
+        
+    </h1>
+    <div toolbar fxLayout="row" fxLayoutAlign="space-evenly center">
+        <button mat-button *ngFor="let item of menuItems" [fxShow]="item.showOnDesktop" [fxShow.xs]="item.showOnMobile"
+            [fxShow.sm]="item.showOnTablet">
+            <mat-icon class="mr">{{item.icon}}</mat-icon>
+            {{item.label}}
+        </button>
+        <ng-container>
+            <button mat-icon-button [matMenuTriggerFor]="dropMenu">
+                <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #dropMenu="matMenu">
+                <ng-container *ngFor="let item of menuItems">
+                    <div [fxShow]="!item.showOnDesktop" [fxShow.sm]="!item.showOnTablet" [fxShow.xs]="!item.showOnMobile">
+                        <button mat-menu-item>
+                            <mat-icon class="mr">{{item.icon}}</mat-icon>
+                            {{item.label}}
+                        </button>
+                        <mat-divider></mat-divider>
+                    </div>
+                </ng-container>
+            </mat-menu>
+        </ng-container>
+
+    </div>
+ 
+</app-sidenav>
+
