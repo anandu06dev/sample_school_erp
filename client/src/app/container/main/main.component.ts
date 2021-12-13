@@ -1,4 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core'
+import { BreakPointService } from '@shared/services/breakpoint.service'
+import { delay, mapTo, Observable, of } from 'rxjs'
 
 export interface MenuItem {
     label: string
@@ -16,57 +18,51 @@ export interface MenuItem {
 export class MainComponent implements OnInit {
     username = 'Srini'
     role = 'Admin'
-    toggleSidebar:boolean = false;
+    toggleSidebar: boolean = false
+
+    loadLayout$: Observable<boolean> = of(false)
 
     menuItems: MenuItem[] = [
         {
-            label: 'Sign Up',
-            icon: 'login',
+            label: 'Dashboard',
+            icon: 'view_module',
+            showOnMobile: true,
+            showOnTablet: false,
+            showOnDesktop: false,
+        },
+        {
+            label: 'Students',
+            icon: 'person',
             showOnMobile: false,
             showOnTablet: false,
             showOnDesktop: false,
         },
         {
-            label: 'About',
-            icon: 'help',
+            label: 'Fees',
+            icon: 'assessment',
             showOnMobile: false,
             showOnTablet: false,
             showOnDesktop: false,
         },
         {
-            label: 'Pricing',
-            icon: 'attach_money',
+            label: 'Parents',
+            icon: 'wc',
             showOnMobile: false,
             showOnTablet: false,
             showOnDesktop: false,
         },
         {
-            label: 'Docs',
-            icon: 'notes',
-            showOnMobile: false,
-            showOnTablet: false,
-            showOnDesktop: false,
-        },
-        {
-            label: 'Showcase',
-            icon: 'slideshow',
-            showOnMobile: false,
-            showOnTablet: false,
-            showOnDesktop: false,
-        },
-        {
-            label: 'Blog',
-            icon: 'rss_feed',
+            label: 'Siblings',
+            icon: 'people',
             showOnMobile: false,
             showOnTablet: false,
             showOnDesktop: false,
         },
     ]
+    currentScreen: any
     constructor() {}
 
     ngOnInit(): void {
-        console.log()
+        this.loadLayout$ = of(true).pipe(delay(650), mapTo(false))
     }
-
-   
 }

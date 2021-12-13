@@ -1,78 +1,92 @@
-<app-sidenav>
-    <div menu fxLayout="column" fxLayoutAlign="space-evenly center">
-        <img class="avatar mat-elevation-z8" class="rounded-circle text-center" width="100" height="100"
-            src="https://www.jea.com/cdn/images/avatar/avatar-alt.svg" />
-
-        <h4 class="name">{{username}}</h4>
-        <p class="designation">{{role}}</p>
-
-        <mat-divider></mat-divider>
-
-        <button mat-button class="menu-button">
-            <mat-icon>view_module</mat-icon>
-            <span>Dashboard</span>
-        </button>
-        <button mat-button class="menu-button">
-            <mat-icon>person</mat-icon>
-            <span>Students</span>
-        </button>
-        <button mat-button class="menu-button">
-            <mat-icon>assessment</mat-icon>
-            <span>Fees</span>
-        </button>
-        <button mat-button class="menu-button">
-            <mat-icon>wc</mat-icon>
-            
-            <span>Parents</span>
-        </button>
-
-        <button mat-button class="menu-button">
-            <mat-icon>people</mat-icon>
-            
-            <span>Siblings</span>
-        </button>
 
 
-        <mat-divider></mat-divider>
+<ng-container *ngIf="loadLayout$|async;else layout"></ng-container>
 
-        <button mat-button class="menu-button">
-            <mat-icon>help</mat-icon>
-            <span>Help</span>
-        </button>
+<ng-template #loader>
+    <div style="display: grid;place-items: center">
+        <app-loading-comp [showText]="true" [setText]="'Loading Layout'"></app-loading-comp>
     </div>
 
+</ng-template>
 
-    <h1 toolbartitle>
-        <button mat-icon-button>
 
-            <mat-icon>menu_icon</mat-icon>
+<ng-template #layout>
+    <app-root-layout>
+        <div menu fxLayout="column" fxLayoutAlign="space-evenly center">
+            <ng-container *ngTemplateOutlet="sidenavcontent"></ng-container>
+        </div>
+
+        <div toolbar fxLayout="row" fxLayoutAlign="space-evenly center">
+            <ng-container *ngTemplateOutlet="dynamicDropDown"></ng-container>
+        </div>
+    </app-root-layout>
+</ng-template>
+
+
+
+
+<!-- Sidenavbar content -->
+<ng-template #sidenavcontent>
+
+    <img class="avatar mat-elevation-z8" class="rounded-circle text-center" width="100" height="100"
+        src="https://www.jea.com/cdn/images/avatar/avatar-alt.svg" />
+
+    <h4 class="name">{{username}}</h4>
+    <p class="designation">{{role}}</p>
+
+    <mat-divider></mat-divider>
+
+    <ng-container *ngFor="let item of menuItems">
+
+
+        <button mat-button class="menu-button">
+            <mat-icon>{{item.icon}}</mat-icon>
+            <span> {{item.label}}</span>
         </button>
-        
-    </h1>
-    <div toolbar fxLayout="row" fxLayoutAlign="space-evenly center" >
-        <button mat-button *ngFor="let item of menuItems" [fxShow]="item.showOnDesktop" [fxShow.xs]="item.showOnMobile"
-            [fxShow.sm]="item.showOnTablet">
-            <mat-icon class="mr">{{item.icon}}</mat-icon>
-            {{item.label}}
+
+
+    </ng-container>
+
+
+
+
+    <mat-divider></mat-divider>
+
+    <button mat-button class="menu-button">
+        <mat-icon>help</mat-icon>
+        <span>Help</span>
+    </button>
+
+
+</ng-template>
+
+
+<!-- Titleebar left side content (i.e) 3 dot -->
+
+<ng-template #dynamicDropDown>
+
+    <button mat-button *ngFor="let item of menuItems" [fxShow]="item.showOnDesktop" [fxShow.xs]="item.showOnMobile"
+        [fxShow.sm]="item.showOnTablet">
+        <mat-icon class="mr">{{item.icon}}</mat-icon>
+        {{item.label}}
+    </button>
+    <ng-container>
+        <button mat-icon-button [matMenuTriggerFor]="dropMenu" class="d-md-none d-sm-block">
+            <mat-icon>more_vert</mat-icon>
         </button>
-        <ng-container>
-            <button mat-icon-button [matMenuTriggerFor]="dropMenu">
-                <mat-icon>more_vert</mat-icon>
-            </button>
-            <mat-menu #dropMenu="matMenu">
-                <ng-container *ngFor="let item of menuItems">
-                    <div [fxShow]="!item.showOnDesktop" [fxShow.sm]="!item.showOnTablet" [fxShow.xs]="!item.showOnMobile">
-                        <button mat-menu-item>
-                            <mat-icon class="mr">{{item.icon}}</mat-icon>
-                            {{item.label}}
-                        </button>
-                        <mat-divider></mat-divider>
-                    </div>
-                </ng-container>
-            </mat-menu>
-        </ng-container>
+        <mat-menu #dropMenu="matMenu">
+            <ng-container *ngFor="let item of menuItems">
+                <div class="" [fxShow]="!item.showOnDesktop" [fxShow.sm]="!item.showOnTablet"
+                    [fxShow.xs]="!item.showOnMobile">
+                    <button mat-menu-item>
+                        <mat-icon class="mr">{{item.icon}}</mat-icon>
+                        {{item.label}}
+                    </button>
+                    <mat-divider></mat-divider>
+                </div>
+            </ng-container>
+        </mat-menu>
+    </ng-container>
 
-    </div>
- 
-</app-sidenav>
 
+</ng-template>

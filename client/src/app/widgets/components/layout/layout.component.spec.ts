@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing'
 
-import { SidenavComponent } from './sidenav.component'
+import { RootLayoutComponent } from './layout.component'
 
-describe('SidenavComponent', () => {
-    let component: SidenavComponent
-    let fixture: ComponentFixture<SidenavComponent>
+describe('RootLayoutComponent', () => {
+    let component: RootLayoutComponent
+    let fixture: ComponentFixture<RootLayoutComponent>
 
     beforeEach(async () => {
         await TestBed.configureTestingModule({
-            declarations: [SidenavComponent],
+            declarations: [RootLayoutComponent],
         }).compileComponents()
     })
 
     beforeEach(() => {
-        fixture = TestBed.createComponent(SidenavComponent)
+        fixture = TestBed.createComponent(RootLayoutComponent)
         component = fixture.componentInstance
         fixture.detectChanges()
     })
