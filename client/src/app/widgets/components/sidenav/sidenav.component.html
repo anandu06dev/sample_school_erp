@@ -35,8 +35,10 @@
     <mat-sidenav-content>
         
         <div class="content mat-elevation-z8">
-            <mat-toolbar select="[toolbar]">
+            <mat-toolbar select="[toolbar]" #content>
+                <ng-content select="[toolbartitle]" (togglesideNavClickEvent)="sideNavEvent($event)"></ng-content>
                 <ng-content></ng-content>
+
             </mat-toolbar>
             <ng-content select="[container]">
 

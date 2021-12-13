@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, EventEmitter, OnInit, Output } from '@angular/core'
 
 export interface MenuItem {
     label: string
@@ -16,7 +16,8 @@ export interface MenuItem {
 export class MainComponent implements OnInit {
     username = 'Srini'
     role = 'Admin'
-    toggleSidebar:boolean = false
+    toggleSidebar:boolean = false;
+
     menuItems: MenuItem[] = [
         {
             label: 'Sign Up',
@@ -67,7 +68,5 @@ export class MainComponent implements OnInit {
         console.log()
     }
 
-    toggleNavbar(e:any){
-        this.toggleSidebar != this.toggleSidebar;
-    }
+   
 }
