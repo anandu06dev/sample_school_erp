@@ -1,0 +1,40 @@
+<div class="bottom-sheet card border-0 bg-transparent h-50" style="overflow-y: auto;">
+    <div class="card-header w-100 bg-transparent d-flex justify-content-between align-item-center">
+        <div>{{label}}</div>
+        <div>
+            <span>
+                <button mat-icon-button color="primary" aria-label="Example icon button with a menu icon">
+                    <mat-icon>edit</mat-icon>
+                </button>
+            </span>
+            <span>
+                <button mat-icon-button color="accent" aria-label="Example icon button with a menu icon">
+                    <mat-icon>delete</mat-icon>
+                </button>
+            </span>
+        </div>
+    </div>
+
+    <div class="card-body h-100 w-100" style="overflow-y: auto;">
+
+        <ng-container *ngIf="viewType === 'list'">
+            <ng-container *ngFor="let list of (renderData|keyvalue)">
+                <ng-container [ngTemplateOutlet]="lists" [ngTemplateOutletContext]="{list:list}">
+                </ng-container>
+            </ng-container>
+        </ng-container>
+    </div>
+
+    <!-- <div> Do you want to change status of <span>{{name}}</span> ? </div>
+    <button mat-button type="button" color="warn" (click)="clearBar()">Cancel</button>
+    <button mat-button class="change" type="submit" color="warn" (click)="changeStatus()">Change</button> -->
+</div>
+
+<ng-template #lists let-list="list">
+    <table class="table table-hover">
+        <tr class="w-100">
+            <td class="fw-bold w-50">{{list?.key | sanitizecamelcaseString: 'student' : true}} : </td>
+            <td class="w-50">{{list?.value}}</td>
+        </tr>
+    </table>
+</ng-template>

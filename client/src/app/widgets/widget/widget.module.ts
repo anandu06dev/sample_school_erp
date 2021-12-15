@@ -6,6 +6,7 @@ import { MatToolbarModule } from '@angular/material/toolbar'
 import { LoadingComponent } from '@widgets/components/loading/loading.component'
 import { SharedModule } from '@shared/shared.module'
 
+
 const DECLARATIONS = [RootLayoutComponent, LoadingComponent]
 const MODS = [MatSidenavModule, MatToolbarModule,SharedModule]
 

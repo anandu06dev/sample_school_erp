@@ -1,6 +1,8 @@
+$layout-bg:#673ab7;
+
 #wifi-loader {
     --background: #62abff;
-    --front-color: #4f29f0;
+    --front-color: #673ab7;
     --back-color: #c3c8de;
     --text-color: #414856;
     width: 64px;
@@ -76,9 +78,10 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        text-transform: lowercase;
+        text-transform: capitalize;
         font-weight: 500;
         font-size: 14px;
+        // width:200px;
         letter-spacing: 0.2px;
         &::before,
         &::after {
@@ -162,29 +165,30 @@
     }
 }
 
-//--- ## BASIC #############
-body {
-    background: #e8ebf3;
-    height: 100vh;
-    font: 400 16px 'Varela Round', sans-serif;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    .socials {
-        position: fixed;
-        display: block;
-        left: 20px;
-        bottom: 20px;
-        > a {
-            display: block;
-            width: 30px;
-            opacity: 0.2;
-            transform: scale(var(--scale, 0.8));
-            transition: transform 0.3s cubic-bezier(0.38, -0.12, 0.24, 1.91);
-            &:hover {
-                --scale: 1;
-            }
-        }
-    }
-}
+// //--- ## BASIC #############
+// body {
+//     background: #e8ebf3;
+//     opacity: 0.6;
+//     height: 100vh;
+//     font: 400 16px 'Varela Round', sans-serif;
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: center;
+//     align-items: center;
+//     .socials {
+//         position: fixed;
+//         display: block;
+//         left: 20px;
+//         bottom: 20px;
+//         > a {
+//             display: block;
+//             width: 30px;
+//             opacity: 0.2;
+//             transform: scale(var(--scale, 0.8));
+//             transition: transform 0.3s cubic-bezier(0.38, -0.12, 0.24, 1.91);
+//             &:hover {
+//                 --scale: 1;
+//             }
+//         }
+//     }
+// }

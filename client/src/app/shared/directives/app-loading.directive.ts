@@ -24,7 +24,7 @@ export class AppLoadingDirective {
         if (value === true) {
             this.loadingComponent = this.viewContainerRef.createComponent(
                 this.loadingFactory
-            )
+            );
         }
 
         if (!value) {

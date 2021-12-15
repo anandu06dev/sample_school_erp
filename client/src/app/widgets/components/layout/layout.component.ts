@@ -20,7 +20,6 @@ import {
 } from 'rxjs/operators'
 import { BehaviorSubject, Observable, Subject } from 'rxjs'
 import { AutoUnsubscribe } from '@utils/auto-unsubscribe.service'
-import { MainComponent } from 'src/app/container/main/main.component'
 import { MatIcon } from '@angular/material/icon'
 import { BreakPointService } from '@shared/services/breakpoint.service'
 
@@ -50,7 +49,7 @@ export class RootLayoutComponent implements AfterViewInit {
 
     ngAfterViewInit() {
         this.observer
-            .observe(['(max-width: 800px)'])
+            .observe(['(max-width: 767px)'])
             .pipe(delay(1), takeUntil(this.destroy$))
             .subscribe((res) => {
                 if (res.matches) {
@@ -70,11 +69,11 @@ export class RootLayoutComponent implements AfterViewInit {
             .pipe(
                 takeUntil(this.destroy$),
                 debounceTime(10),
-                tap((d) => console.log(d))
             )
             .subscribe((data: boolean) => {
                 if (data) this.sidenav.open()
                 if (!data) this.sidenav.close()
+                if(this.smallscreen)  this.sidenav.close()
             })
     }
 
