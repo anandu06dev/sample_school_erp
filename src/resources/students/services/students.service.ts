@@ -10,9 +10,7 @@ import { StudentRepository } from '../repositories/student.repository'
 export class StudentsService {
     constructor(private readonly _studentRepository: StudentRepository) {}
 
-    public async getStudents(
-        pageOptionsDto: PageOptionsDto
-    ): Promise<any> {
+    public async getStudents(pageOptionsDto: PageOptionsDto): Promise<any> {
         const queryBuilder =
             this._studentRepository.createQueryBuilder('student')
         queryBuilder

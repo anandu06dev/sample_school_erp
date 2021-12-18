@@ -4,8 +4,9 @@ import { AppController } from './app.controller'
 import { AppService } from './app.service'
 import { StudentsModule } from '@resources/students/students.module'
 import { DatabaseModule } from '@core/database.module'
+import { StudentDetailsModule } from '@resources/student-details/student-details.module'
 
-const MODULES = [DatabaseModule, StudentsModule]
+const MODULES = [DatabaseModule, StudentsModule, StudentDetailsModule]
 
 @Module({
     imports: [...MODULES],

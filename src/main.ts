@@ -1,4 +1,4 @@
-import { ValidationPipe } from '@nestjs/common'
+import { ClassSerializerInterceptor, ValidationPipe } from '@nestjs/common'
 import { NestFactory } from '@nestjs/core'
 import { ExpressAdapter } from '@nestjs/platform-express'
 import { createSwaggerAPI } from '@utils/swaggerAPI'
@@ -14,11 +14,11 @@ async function bootstrap() {
     )
     app.use(helmet())
     app.use(RateLimit({ windowMs: 15 * 60 * 1000, max: 200 }))
-    app.useGlobalInterceptors(new ClassSerializerInterceptor(reflector))
-    app.useGlobalFilters(
-        new HttpExceptionFilter(reflector),
-        new QueryFailedFilter(reflector)
-    )
+    // app.useGlobalInterceptors(new ClassSerializerInterceptor(reflector))
+    // app.useGlobalFilters(
+    //     new HttpExceptionFilter(reflector),
+    //     new QueryFailedFilter(reflector)
+    // )
     app.useGlobalPipes(
         new ValidationPipe({
             transform: true,
