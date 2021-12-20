@@ -4,7 +4,7 @@ import { Timestamp } from 'typeorm'
 export class StudentDetailDto {
     admissionNo?: number
     @IsNotEmpty()
-    adminDate?: Timestamp
+    admissionDate?: Timestamp
     @IsNotEmpty()
     studentFirstName?: string
     @IsNotEmpty()
@@ -12,9 +12,9 @@ export class StudentDetailDto {
     @IsNotEmpty()
     studentLastName?: string
     @IsNotEmpty()
-    studentFathName?: string
+    studentFatherName?: string
     @IsNotEmpty()
-    studentMthrName?: string
+    studentMotherName?: string
     @IsNotEmpty()
     studentGender?: string
     @IsNotEmpty()
@@ -24,23 +24,25 @@ export class StudentDetailDto {
     @IsNotEmpty()
     studentSubCaste?: string
     @IsNotEmpty()
-    studentCmty?: string
+    studentCommunity?: string
     @IsNotEmpty()
-    studentRlig?: string
+    studentReligion?: string
     @IsNotEmpty()
-    studentNtly?: string
+    studentNationality?: string
     @IsNotEmpty()
-    studentMthrTnge?: string
+    studentMotherToungue?: string
     @IsNotEmpty()
-    studentLngKnwn?: string
+    studentLangaugeKnown?: string
     @IsNotEmpty()
-    studentBldGrup?: string
+    studentBloodGroup?: string
     @IsNotEmpty()
-    studentAharNo?: string
+    studentAadharNumber?: string
     @IsNotEmpty()
     studentEmisNo?: string
     @IsNotEmpty()
-    studentPrevSchl?: string
+    studentPreviousSchool?: string
     @IsNotEmpty()
     studentDiscount?: number
+    @IsNotEmpty()
+    studentIsActive?: boolean
 }

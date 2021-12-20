@@ -1,6 +1,7 @@
-import { Body, Injectable, NotFoundException } from '@nestjs/common'
+import { Injectable, NotFoundException } from '@nestjs/common'
 import { InjectRepository } from '@nestjs/typeorm'
-import { Repository } from 'typeorm'
+import { getCustomRepository, Repository } from 'typeorm'
+import { StudentDetailRepository } from './customRepository/student-cstm-repository'
 import { StudentDetailDto } from './dto/student-detail.dto'
 import { StudentDetails } from './entities/student-detail.entity'
 
@@ -12,17 +13,29 @@ export class StudentDetailsService {
     ) {}
 
     create(createStudentDetailDto: StudentDetailDto) {
-        console.log(createStudentDetailDto)
         return this.studentRepository.save(createStudentDetailDto)
     }
 
     async findAll(): Promise<StudentDetails[]> {
-        //return `This action returns all studentDetails`
         return this.studentRepository.find()
+    }
+
+    async findByAll(): Promise<StudentDetails[]> {
+        const studentCtsmRepository = getCustomRepository(
+            StudentDetailRepository
+        )
+        return studentCtsmRepository.findByAll()
     }
 
     findOne(id: number): Promise<StudentDetails> {
         return this.studentRepository.findOne(id)
+    }
+
+    findByIdAndIsActive(id: number): Promise<StudentDetails> {
+        const studentCtsmRepository = getCustomRepository(
+            StudentDetailRepository
+        )
+        return studentCtsmRepository.findByIdAndIsActive(id)
     }
 
     async update(id: number, updateStudentDetailDto: StudentDetailDto) {
@@ -30,7 +43,6 @@ export class StudentDetailsService {
         if (!toUpdate) {
             throw new NotFoundException('Student is not found')
         }
-        const updated = Object.assign(toUpdate, updateStudentDetailDto)
         return this.studentRepository.update(id, updateStudentDetailDto)
     }
 

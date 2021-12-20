@@ -6,11 +6,9 @@ import {
     Patch,
     Param,
     Delete,
-    ValidationPipe,
 } from '@nestjs/common'
 import { StudentDetailsService } from './student-details.service'
 import { StudentDetailDto } from './dto/student-detail.dto'
-import { StudentDetails } from './entities/student-detail.entity'
 
 @Controller('student-details')
 export class StudentDetailsController {
@@ -27,6 +25,16 @@ export class StudentDetailsController {
     @Get()
     findAll() {
         return this.studentDetailsService.findAll()
+    }
+
+    @Get('/findByIdandActive/:id')
+    findByIdAndIsActive(@Param('id') id: string) {
+        return this.studentDetailsService.findByIdAndIsActive(+id)
+    }
+
+    @Get('/findByAll')
+    findByAll() {
+        return this.studentDetailsService.findByAll()
     }
 
     @Get(':id')

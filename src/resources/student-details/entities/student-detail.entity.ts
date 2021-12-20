@@ -19,7 +19,7 @@ export class StudentDetails {
         nullable: true,
         comment: 'Admission Date',
     })
-    adminDate: Date | null
+    admissionDate: Date | null
 
     @Column('varchar', {
         name: 'STUD_FIRST_NAME',
@@ -51,7 +51,7 @@ export class StudentDetails {
         comment: 'Student Father Name',
         length: 100,
     })
-    studentFathName: string | null
+    studentFatherName: string | null
 
     @Column('varchar', {
         name: 'STUD_MTHR_NAME',
@@ -59,7 +59,7 @@ export class StudentDetails {
         comment: 'MOTHER NAME',
         length: 100,
     })
-    studentMthrName: string | null
+    studentMotherName: string | null
 
     @Column('varchar', {
         name: 'STUD_GNDR',
@@ -93,7 +93,7 @@ export class StudentDetails {
         comment: 'STUDENT COMMUNITY (SC/ST, MBC, BC,OC,BCM)\r',
         length: 10,
     })
-    studentCmty: string | null
+    studentCommunity: string | null
 
     @Column('varchar', {
         name: 'STUD_RLIG',
@@ -101,7 +101,7 @@ export class StudentDetails {
         comment: 'STUDENT RELIGION',
         length: 100,
     })
-    studentRlig: string | null
+    studentReligion: string | null
 
     @Column('varchar', {
         name: 'STUD_NTLY',
@@ -109,7 +109,7 @@ export class StudentDetails {
         comment: 'STUDENT NATIONALITY',
         length: 100,
     })
-    studentNtly: string | null
+    studentNationality: string | null
 
     @Column('varchar', {
         name: 'STUD_MTHR_TNGE',
@@ -117,7 +117,7 @@ export class StudentDetails {
         comment: 'MOTHER TONGUE',
         length: 100,
     })
-    studentMthrTnge: string | null
+    studentMotherToungue: string | null
 
     @Column('varchar', {
         name: 'STUD_LNG_KNWN',
@@ -125,7 +125,7 @@ export class StudentDetails {
         comment: ' STUDENT LANGUAGES KNOWN',
         length: 100,
     })
-    studentLngKnwn: string | null
+    studentLangaugeKnown: string | null
 
     @Column('varchar', {
         name: 'STUD_BLD_GRUP',
@@ -133,7 +133,7 @@ export class StudentDetails {
         comment: ' STUDENT BLOOD GROUP',
         length: 100,
     })
-    studentBldGrup: string | null
+    studentBloodGroup: string | null
 
     @Column('varchar', {
         name: 'STUD_AHAR_NO',
@@ -141,7 +141,7 @@ export class StudentDetails {
         comment: 'STUDENT AADHAR NUMBER',
         length: 100,
     })
-    studentAharNo: string | null
+    studentAadharNumber: string | null
 
     @Column('varchar', {
         name: 'STUD_EMIS_NO',
@@ -157,7 +157,7 @@ export class StudentDetails {
         comment: ' STUDENT PREVIOUS SCHOOL',
         length: 100,
     })
-    studentPrevSchl: string | null
+    studentPreviousSchool: string | null
 
     @Column('double', {
         name: 'STUD_DISCOUNT',
@@ -166,4 +166,10 @@ export class StudentDetails {
         precision: 22,
     })
     studentDiscount: number | null
+
+    @Column('int', {
+        name: 'STUD_IS_ACTIVE',
+        comment: 'STUDENT IS ACTIVE',
+    })
+    studentIsActive: boolean
 }
