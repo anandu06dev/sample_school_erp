@@ -22,6 +22,12 @@ export class StudentDetailsController {
         return this.studentDetailsService.create(createStudentDetailDto)
     }
 
+    @Post('/findByProjection')
+    findByProjection(@Body() projection: Projection) {
+        console.log(projection)
+        return this.studentDetailsService.findByProjection(projection)
+    }
+
     @Get()
     findAll() {
         return this.studentDetailsService.findAll()
@@ -52,4 +58,8 @@ export class StudentDetailsController {
     remove(@Param('id') id: string) {
         return this.studentDetailsService.remove(+id)
     }
+}
+
+export interface Projection {
+    projectionId: string[]
 }

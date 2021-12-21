@@ -41,4 +41,15 @@ export class StudentDetailRepository extends AbstractRepository<StudentDetails> 
             },
         })
     }
+
+    findByProjection(id: any) {
+        return this.repository.find({
+            select: id,
+            order: {
+                studentFirstName: 'ASC',
+            },
+        })
+    }
+
+    //userRepository.find({ select: ["firstName", "lastName"] });
 }
