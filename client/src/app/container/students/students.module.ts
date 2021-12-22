@@ -11,11 +11,17 @@ import { MatCardModule } from '@angular/material/card';
 import { MatChipsModule } from '@angular/material/chips';
 
 
+import { FormlyMaterialModule } from '@ngx-formly/material';
 import { MatListModule } from '@angular/material/list';
 import { WidgetModule } from '@widgets/widget/widget.module';
 import { AgGridModule } from 'ag-grid-angular';
 import { BottomsheetsComponent } from './components/bottomsheets/bottomsheets.component';
 import { BottomsheetPipe } from './pipes/bottomsheet.pipe';
+import { ReactiveFormsModule } from '@angular/forms';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { SharedModule } from '@shared/shared.module';
+import { MatInputModule } from '@angular/material/input';
+import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -24,16 +30,21 @@ import { BottomsheetPipe } from './pipes/bottomsheet.pipe';
     ListviewComponent,
     FormsComponent,
     BottomsheetsComponent,
-    BottomsheetPipe
+    BottomsheetPipe,
   ],
   imports: [
     CommonModule,
     StudentsRoutingModule,
     MatTabsModule,
     MatCardModule,
+    MatInputModule,
     MatChipsModule,
+    MatSelectModule,
     MatListModule,WidgetModule, AgGridModule.withComponents([]),
-  
+    ReactiveFormsModule,
+    FormlyMaterialModule,
+    MatDatepickerModule,
+    
   ]
 })
 export class StudentsModule { }

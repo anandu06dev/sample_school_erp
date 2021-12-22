@@ -7,7 +7,7 @@ import { FlexLayoutModule } from '@angular/flex-layout'
 import { MatMenuModule } from '@angular/material/menu'
 import { AppLoadingDirective } from './directives/app-loading.directive';
 import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'; 
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 const SHARED_MODS = [
     MatButtonModule,
     MatIconModule,

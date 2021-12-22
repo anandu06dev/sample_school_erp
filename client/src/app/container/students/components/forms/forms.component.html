@@ -1,1 +1,46 @@
-<p>forms works!</p>
+<div class="card" id="forms">
+    <div class="card-body">
+     
+            <form [formGroup]="studentForms" class="row">
+
+                <div class="col-12 col-sm-12 col-md-6 col-lg-6 my-1">
+                    <mat-form-field class="w-100" appearance="fill">
+                        <mat-label>First Name</mat-label>
+                        <input type="text" matInput formControlName="studentFirstName" [errorStateMatcher]="matcher">
+                        <mat-hint>Enter student's first name</mat-hint>
+                        <mat-error *ngIf="f.get('studentFirstName')?.hasError('required')">
+                            Please enter a student's firstname
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="col-12 col-sm-12 col-md-6 col-lg-6 my-1">
+                    <mat-form-field class="w-100" appearance="fill">
+                        <mat-label>Last Name</mat-label>
+                        <input type="text" matInput formControlName="studentLastName" [errorStateMatcher]="matcher">
+                        <mat-hint>Enter student's last name</mat-hint>
+                        <mat-error *ngIf="f.get('studentLastName')?.hasError('required')">
+                            Please enter a student's lastname
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="col-12 col-sm-12 col-md-6 col-lg-6 my-1">
+                    <mat-form-field class="w-100" appearance="fill">
+                        <mat-label>Class</mat-label>
+
+                        <mat-select formControlName="studentClass" [errorStateMatcher]="matcher">
+                            <mat-option *ngFor="let item of classes" [value]="item.value">{{item.label}}</mat-option>
+                        </mat-select>
+                        <mat-hint>Enter student's current class</mat-hint>
+                        <mat-error *ngIf="f.get('studentClass')?.hasError('required')">
+                            Please enter a student's lastname
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </form>
+
+        </div>
+
+
+  
+
+</div>
