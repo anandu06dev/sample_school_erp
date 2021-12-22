@@ -28,6 +28,14 @@ export class StudentDetailsController {
         return this.studentDetailsService.findByProjection(projection)
     }
 
+    @Post('/findByProjectionId')
+    findByProjectionId(@Body() projection: Projection) {
+        console.log(projection)
+        return this.studentDetailsService.findByProjectionByIdAndActive(
+            projection
+        )
+    }
+
     @Get()
     findAll() {
         return this.studentDetailsService.findAll()
@@ -36,6 +44,11 @@ export class StudentDetailsController {
     @Get('/findByIdandActive/:id')
     findByIdAndIsActive(@Param('id') id: string) {
         return this.studentDetailsService.findByIdAndIsActive(+id)
+    }
+
+    @Get('/searchByName/:name')
+    searchByStudentFirstName(@Param('name') name: string) {
+        return this.studentDetailsService.searchByStudentFirstName(name)
     }
 
     @Get('/findByAll')
@@ -62,4 +75,6 @@ export class StudentDetailsController {
 
 export interface Projection {
     projectionId: string[]
+    isActive?: boolean
+    admissionId?: string[]
 }

@@ -51,6 +51,24 @@ export class StudentDetailsService {
         return this.studentCtsmRepository.findByProjection(id.projectionId)
     }
 
+    async findByProjectionByIdAndActive(
+        projection: Projection
+    ): Promise<StudentDetails[]> {
+        return this.studentCtsmRepository.findByProjectionByIdAndActive(
+            projection.projectionId,
+            projection.isActive,
+            projection.admissionId
+        )
+    }
+
+    async searchByStudentFirstName(
+        studentFirstName: string
+    ): Promise<StudentDetails[]> {
+        return this.studentCtsmRepository.searchByStudentFirstName(
+            studentFirstName
+        )
+    }
+
     async remove(id: number) {
         await this.studentRepository.delete(id)
     }

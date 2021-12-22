@@ -1,4 +1,4 @@
-import { EntityRepository, AbstractRepository } from 'typeorm'
+import { EntityRepository, AbstractRepository, In, ILike } from 'typeorm'
 import { StudentDetails } from '../entities/student-detail.entity'
 
 /*
@@ -42,12 +42,35 @@ export class StudentDetailRepository extends AbstractRepository<StudentDetails> 
         })
     }
 
+    findByProjectionByIdAndActive(
+        id: any,
+        isActive: boolean,
+        admissionId: string[]
+    ) {
+        return this.repository.find({
+            where: {
+                admissionNo: In(admissionId),
+                studentIsActive: isActive,
+            },
+            select: id,
+            order: {
+                studentFirstName: 'ASC',
+            },
+        })
+    }
+
     findByProjection(id: any) {
         return this.repository.find({
             select: id,
             order: {
                 studentFirstName: 'ASC',
             },
+        })
+    }
+
+    searchByStudentFirstName(studentFirstName: string) {
+        return this.repository.find({
+            studentFirstName: ILike('%' + studentFirstName + '%'),
         })
     }
 
