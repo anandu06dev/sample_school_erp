@@ -8,11 +8,12 @@
     animationDuration="1000ms"
 >
     <ng-container *ngFor="let tab of matTabMenu">
+        <!-- <p *ngIf="!(headerPosition === 'below')"> </p> -->
         <mat-tab
-            
+            label="table"
             height="400"
-            *ngIf="!(headerPosition === 'below')"
-        >
+            headerPosition="headerPosition"
+            >
             <ng-template mat-tab-label>
                 <mat-icon class="mx-2">{{ tab?.icon }}</mat-icon>
                 <span class="text-capitalize">{{ tab.label }}</span>
