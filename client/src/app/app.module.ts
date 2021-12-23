@@ -7,6 +7,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { ServiceWorkerModule } from '@angular/service-worker'
 import { environment } from '../environments/environment'
 import { CoreModule } from '@core/core.module'
+import { WidgetModule } from '@widgets/widget/widget.module'
+import { SharedModule } from '@shared/shared.module'
+import { BottomsheetsComponent } from './container/students/components/bottomsheets/bottomsheets.component'
+import { MatBottomSheetRef, MAT_BOTTOM_SHEET_DATA } from '@angular/material/bottom-sheet'
 
 @NgModule({
     declarations: [AppComponent],
@@ -15,6 +19,9 @@ import { CoreModule } from '@core/core.module'
         AppRoutingModule,
         BrowserAnimationsModule,
         CoreModule,
+        WidgetModule,
+        SharedModule,
+
         ServiceWorkerModule.register('ngsw-worker.js', {
             enabled: environment.production,
             // Register the ServiceWorker as soon as the app is stable
@@ -22,7 +29,11 @@ import { CoreModule } from '@core/core.module'
             registrationStrategy: 'registerWhenStable:30000',
         }),
     ],
-    providers: [],
+    providers: [
+        { provide: MatBottomSheetRef, useValue: {} },
+        { provide: MAT_BOTTOM_SHEET_DATA, useValue: {} },
+    ],
     bootstrap: [AppComponent],
+    entryComponents: [BottomsheetsComponent],
 })
 export class AppModule {}

@@ -8,8 +8,9 @@ import { CommonModule } from '@angular/common'
 import { RouterModule } from '@angular/router'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { LocalstorageService } from '@shared/services/localstorage.service'
+import { BreakPointService } from '@shared/services/breakpoint.service'
 
-const providers = [{ provide: 'Window', useValue: window }, LocalstorageService]
+const providers = [{ provide: 'Window', useValue: window }, LocalstorageService,BreakPointService]
 
 @NgModule({
     declarations: [],
