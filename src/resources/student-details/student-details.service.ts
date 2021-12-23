@@ -1,10 +1,10 @@
 import { Injectable, NotFoundException } from '@nestjs/common'
 import { InjectRepository } from '@nestjs/typeorm'
+import { Projection } from '@resources/resource-model/resource.model'
 import { getCustomRepository, Repository } from 'typeorm'
 import { StudentDetailRepository } from './customRepository/student-cstm-repository'
 import { StudentDetailDto } from './dto/student-detail.dto'
 import { StudentDetails } from './entities/student-detail.entity'
-import { Projection } from './student-details.controller'
 
 @Injectable()
 export class StudentDetailsService {
@@ -31,19 +31,16 @@ export class StudentDetailsService {
         return this.studentRepository.findOne(id)
     }
 
-    findByIdAndIsActive(id: number): Promise<StudentDetails> {
-        const studentCtsmRepository = getCustomRepository(
-            StudentDetailRepository
-        )
-        return studentCtsmRepository.findByIdAndIsActive(id)
-    }
-
     async update(id: number, updateStudentDetailDto: StudentDetailDto) {
         const toUpdate = await this.studentRepository.findOne(id)
         if (!toUpdate) {
             throw new NotFoundException('Student is not found')
         }
         return this.studentRepository.update(id, updateStudentDetailDto)
+    }
+
+    async remove(id: number) {
+        await this.studentRepository.delete(id)
     }
 
     async findByProjection(id: Projection): Promise<StudentDetails[]> {
@@ -69,7 +66,10 @@ export class StudentDetailsService {
         )
     }
 
-    async remove(id: number) {
-        await this.studentRepository.delete(id)
+    findByIdAndIsActive(id: number): Promise<StudentDetails> {
+        const studentCtsmRepository = getCustomRepository(
+            StudentDetailRepository
+        )
+        return studentCtsmRepository.findByIdAndIsActive(id)
     }
 }

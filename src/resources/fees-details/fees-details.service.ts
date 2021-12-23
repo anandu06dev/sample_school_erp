@@ -1,9 +1,17 @@
 import { Injectable } from '@nestjs/common'
+import { InjectRepository } from '@nestjs/typeorm'
+import { Repository } from 'typeorm'
 import { CreateFeesDetailDto } from './dto/create-fees-detail.dto'
 import { UpdateFeesDetailDto } from './dto/update-fees-detail.dto'
+import { FeesDetails } from './entities/fees-detail.entity'
 
 @Injectable()
 export class FeesDetailsService {
+
+    constructor(
+        @InjectRepository(FeesDetails)
+        private studentRepository: Repository<FeesDetails>
+    ) {}
     create(createFeesDetailDto: CreateFeesDetailDto) {
         return 'This action adds a new feesDetail'
     }

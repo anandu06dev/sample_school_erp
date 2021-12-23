@@ -9,6 +9,7 @@ import {
 } from '@nestjs/common'
 import { StudentDetailsService } from './student-details.service'
 import { StudentDetailDto } from './dto/student-detail.dto'
+import { Projection } from '@resources/resource-model/resource.model'
 
 @Controller('student-details')
 export class StudentDetailsController {
@@ -71,10 +72,4 @@ export class StudentDetailsController {
     remove(@Param('id') id: string) {
         return this.studentDetailsService.remove(+id)
     }
-}
-
-export interface Projection {
-    projectionId: string[]
-    isActive?: boolean
-    admissionId?: string[]
 }

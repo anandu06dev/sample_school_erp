@@ -7,7 +7,7 @@ export class AddressDetails {
         comment: ' Admission Number',
         length: 50,
     })
-    prntAdrsCd: string
+    printAddressCd: string
 
     @Column('varchar', {
         name: 'PRNT_ADRS_ADD1',
@@ -15,7 +15,7 @@ export class AddressDetails {
         comment: ' PARENT ADDRESS 1',
         length: 100,
     })
-    prntAdrsAdd1: string | null
+    printAddressAdd1: string | null
 
     @Column('varchar', {
         name: 'PRNT_ADRS_ADD2',
@@ -23,7 +23,7 @@ export class AddressDetails {
         comment: ' PARENT ADDRESS 2',
         length: 100,
     })
-    prntAdrsAdd2: string | null
+    printAddressAdd2: string | null
 
     @Column('varchar', {
         name: 'PRNT_ADRS_ADD3',
@@ -31,7 +31,7 @@ export class AddressDetails {
         comment: ' PARENT ADDRESS 3',
         length: 100,
     })
-    prntAdrsAdd3: string | null
+    printAddressAdd3: string | null
 
     @Column('varchar', {
         name: 'PRNT_ADRS_ADD4',
@@ -39,7 +39,7 @@ export class AddressDetails {
         comment: ' PARENT ADDRESS 4',
         length: 100,
     })
-    prntAdrsAdd4: string | null
+    printAddressAdd4: string | null
 
     @Column('varchar', {
         name: 'PRNT_ADRS_ADD5',
@@ -47,7 +47,7 @@ export class AddressDetails {
         comment: ' PARENT ADDRESS 5',
         length: 100,
     })
-    prntAdrsAdd5: string | null
+    printAddressAdd5: string | null
 
     @Column('varchar', {
         name: 'PRNT_ADRS_DIST',
@@ -55,7 +55,7 @@ export class AddressDetails {
         comment: 'PARENT ADDRESS DISTRICT',
         length: 100,
     })
-    prntAdrsDist: string | null
+    printAddressDist: string | null
 
     @Column('varchar', {
         name: 'PRNT_ADRS_PSTL_CD',
@@ -63,8 +63,8 @@ export class AddressDetails {
         comment: 'PARENT ADDRESS POSTEL CODE',
         length: 100,
     })
-    prntAdrsPstlCd: string | null
+    printAddressPstlCd: string | null
 
     @Column('varchar', { primary: true, name: 'ADMN_NO', length: 50 })
-    admnNo: string
+    admissionNo: string
 }

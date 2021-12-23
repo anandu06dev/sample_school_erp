@@ -7,10 +7,10 @@ export class BusRouteDetails {
         comment: 'Admission Number',
         length: 50,
     })
-    admnNo: string
+    admissionNo: string
 
     @Column('int', { name: 'BUS_RUTE_CD', comment: 'BUS ROUTE' })
-    busRuteCd: number
+    busRouteCode: number
 
     @Column('varchar', {
         name: 'BUS_RUTE_NO',
@@ -18,7 +18,7 @@ export class BusRouteDetails {
         comment: 'BUS NUMBER',
         length: 16,
     })
-    busRuteNo: string | null
+    busRouteNo: string | null
 
     @Column('varchar', {
         name: 'BUS_RUTE_DRIVER_NAME',
@@ -26,14 +26,14 @@ export class BusRouteDetails {
         comment: 'DRIVER NAME',
         length: 150,
     })
-    busRuteDriverName: string | null
+    busRouteDriverName: string | null
 
     @Column('int', {
         name: 'BUS_RUTE_DRIVER_NO',
         nullable: true,
         comment: 'DRIVER PHONE NUMBER',
     })
-    busRuteDriverNo: number | null
+    busRouteDriverNo: number | null
 
     @Column('varchar', {
         name: 'BUS_RUTE_INCH_NAME',
@@ -41,14 +41,14 @@ export class BusRouteDetails {
         comment: 'INCHARGER NAME',
         length: 150,
     })
-    busRuteInchName: string | null
+    busRouteInchargeName: string | null
 
     @Column('int', {
         name: 'BUS_RUTE_INCH_NO',
         nullable: true,
         comment: 'DRIVER MOBILE NUMBER',
     })
-    busRuteInchNo: number | null
+    busRouteInchargeNo: number | null
 
     @Column('varchar', {
         name: 'BUS_RUTE_INS_DTL',
@@ -56,5 +56,5 @@ export class BusRouteDetails {
         comment: 'BUS INSURANE DETAILS',
         length: 150,
     })
-    busRuteInsDtl: string | null
+    busRouteInsDtl: string | null
 }

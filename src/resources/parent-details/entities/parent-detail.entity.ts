@@ -7,10 +7,10 @@ export class ParentDetails {
         comment: 'Admission Number',
         length: 50,
     })
-    admnNo: string
+    admissionNo: string
 
     @Column('int', { name: 'PRNT_CD', comment: 'PARENT CODE' })
-    prntCd: number
+    parentCode: number
 
     @Column('varchar', {
         name: 'PRNT_EDUC',
@@ -18,7 +18,7 @@ export class ParentDetails {
         comment: 'PARENT EDUCATION',
         length: 100,
     })
-    prntEduc: string | null
+    parentEducation: string | null
 
     @Column('varchar', {
         name: 'PRNT_OCCU',
@@ -26,21 +26,21 @@ export class ParentDetails {
         comment: 'PARENT OCCUPATION',
         length: 100,
     })
-    prntOccu: string | null
+    parentOccupation: string | null
 
     @Column('int', {
         name: 'PRNT_AADH_NO',
         nullable: true,
         comment: 'AADHAR CARD NUMBER( XXXX -XXXX-XXXX)',
     })
-    prntAadhNo: number | null
+    parentAadharNo: number | null
 
     @Column('int', {
         name: 'PRNT_PHNE_NO',
         nullable: true,
         comment: 'PHONE NUMBER ( 12345 -12345)',
     })
-    prntPhneNo: number | null
+    parentPhoneNo: number | null
 
     @Column('varchar', {
         name: 'PRNT_EMAIL_ID',
@@ -48,5 +48,5 @@ export class ParentDetails {
         comment: 'PARENT ADDRESS 5',
         length: 150,
     })
-    prntEmailId: string | null
+    parentEmailId: string | null
 }
