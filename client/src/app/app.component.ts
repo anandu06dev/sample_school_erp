@@ -1,8 +1,11 @@
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout'
 import { Component } from '@angular/core'
 import { BreakPointService } from '@shared/services/breakpoint.service'
+import { LocalstorageService } from '@shared/services/localstorage.service'
 import { IToolBarMenu } from '@utils/interfaces/toolbarmenu.interface'
+import { MenuItemDef } from 'ag-grid-community'
 import { Observable, of, Subject, takeUntil } from 'rxjs'
+import { menu } from './app.model'
 
 @Component({
     selector: 'app-root',
@@ -16,52 +19,7 @@ export class AppComponent {
 
     loadLayout$: Observable<boolean> = of(false)
 
-    menuItems: IToolBarMenu[] = [
-        {
-            label: 'Dashboard',
-            icon: 'view_module',
-            showOnMobile: true,
-            showOnTablet: false,
-            showOnDesktop: false,
-            url:'/dashboard'
-        },
-        {
-            label: 'Students',
-            icon: 'person',
-            showOnMobile: false,
-            showOnTablet: false,
-            showOnDesktop: false,
-            url:'/students'
-
-        },
-        {
-            label: 'Fees',
-            icon: 'assessment',
-            showOnMobile: false,
-            showOnTablet: false,
-            showOnDesktop: false,
-            url:'/fees'
-
-        },
-        {
-            label: 'Parents',
-            icon: 'wc',
-            showOnMobile: false,
-            showOnTablet: false,
-            showOnDesktop: false,
-            url:'/parents'
-
-        },
-        {
-            label: 'Siblings',
-            icon: 'people',
-            showOnMobile: false,
-            showOnTablet: false,
-            showOnDesktop: false,
-            url:'/siblings'
-
-        },
-    ]
+    menuItems: IToolBarMenu[] = [...menu]
     destroyed = new Subject<void>()
 
     // Create a map to display breakpoint names for demonstration purposes.
@@ -74,10 +32,12 @@ export class AppComponent {
     ])
 
     title = 'client'
+    selectedMenu!: IToolBarMenu;
 
     constructor(
         private breakpointObserver: BreakpointObserver,
-        private breakPointService: BreakPointService
+        private breakPointService: BreakPointService,
+        private storageService:LocalstorageService,
     ) {
         this.loadLayout$ = of(true)
 
@@ -95,19 +55,23 @@ export class AppComponent {
                     if (result.breakpoints[query]) {
                         let currentScreenSize =
                             this.displayNameMap.get(query) ?? 'Unknown'
-                        breakPointService.currentScreen = currentScreenSize
-                        console.log(currentScreenSize)
+                        breakPointService.currentScreen = currentScreenSize;
                     }
                 }
             })
+
     }
     ngOnDestroy() {
         this.destroyed.next()
         this.destroyed.complete()
     }
-    ngOnInit(): void {
+    ngOnInit(): void {    
         setTimeout(() => {
             this.loadLayout$ = of(false)
         },0.5 * 1000)
+    }
+
+    loadRouteToStorage(menu:IToolBarMenu):void{
+        this.selectedMenu = {...menu};        
     }
 }

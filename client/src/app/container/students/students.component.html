@@ -1,44 +1,53 @@
 <!-- <mat-card class="mat-parent-card my-1 mx-auto"></mat-card> -->
 
-<mat-tab-group mat-stretch-tabs [headerPosition]="headerPosition" id="tab-group" [selectedIndex]="1" animationDuration="750ms">
-    <mat-tab label="Table" height="400" *ngIf="!(headerPosition==='below')">
-        <ng-template mat-tab-label>
-            <mat-icon class="mx-2">table_view</mat-icon>
-            Table
-          </ng-template>
-        <ng-container *ngTemplateOutlet="tableView"></ng-container>
-    </mat-tab>
-    <mat-tab label="List" height="400">
-        <ng-template mat-tab-label>
-            <mat-icon class="mx-2">view_list</mat-icon>
-            Lists
-          </ng-template>
-        <ng-container *ngTemplateOutlet="listView"></ng-container>
-
-    </mat-tab>
-    <mat-tab label="Forms" height="400">
-        <ng-template mat-tab-label>
-            <mat-icon class="mx-2">fact_check</mat-icon>
-            Forms
-          </ng-template>
-        <ng-container *ngTemplateOutlet="forForms"></ng-container>
-
-    </mat-tab>
+<mat-tab-group
+    mat-stretch-tabs
+    [headerPosition]="headerPosition"
+    id="tab-group"
+    [selectedIndex]="1"
+    animationDuration="1000ms"
+>
+    <ng-container *ngFor="let tab of matTabMenu">
+        <!-- <p *ngIf="!(headerPosition === 'below')"> </p> -->
+        <mat-tab
+            label="table"
+            height="400"
+            headerPosition="headerPosition"
+            >
+            <ng-template mat-tab-label>
+                <mat-icon class="mx-2">{{ tab?.icon }}</mat-icon>
+                <span class="text-capitalize">{{ tab.label }}</span>
+            </ng-template>
+            
+            <ng-container [ngSwitch]="true">
+                <ng-container *ngSwitchCase="tab.view === 'tableView'">
+                    <ng-container *ngTemplateOutlet="tableView"></ng-container>
+                </ng-container>
+                <ng-container *ngSwitchCase="tab.view === 'listView'">
+                    <ng-container *ngTemplateOutlet="listView"></ng-container>
+                </ng-container>
+            
+                <ng-container *ngSwitchCase="tab.view === 'formsView'">
+                    <ng-container *ngTemplateOutlet="forForms"></ng-container>
+                </ng-container>
+            </ng-container>
+        </mat-tab>
+    </ng-container>
 </mat-tab-group>
 
-
 <ng-template matTabContent #tableView>
-    <app-tableview [rowData]="studentRowData" [columnDefinition]="studentColDef" ></app-tableview>
+    <app-tableview [rowData]="studentRowData"
+        [columnDefinition]="studentColDef"
+    ></app-tableview>
 </ng-template>
 
 <ng-template matTabContent #listView>
-
-    <app-list-view [studentListsData]="studentRowData" [trackScreenView]="currentScreen$ | async"></app-list-view>
-
+    <app-list-view
+        [studentListsData]="studentRowData"
+        [trackScreenView]="currentScreen$ | async"
+    ></app-list-view>
 </ng-template>
 
 <ng-template matTabContent #forForms>
     <app-forms></app-forms>
-
-
 </ng-template>

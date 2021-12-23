@@ -5,7 +5,7 @@ import {
     MAT_BOTTOM_SHEET_DATA,
 } from '@angular/material/bottom-sheet'
 @Component({
-    selector: 'app-bottom-sheet',
+    selector: 'app-student-bottom-sheet',
     templateUrl: './bottomsheets.component.html',
     styleUrls: ['./bottomsheets.component.scss'],
 })
@@ -13,7 +13,7 @@ export class BottomsheetsComponent implements OnInit {
     _bottomSheet: boolean = false
     @Input() set openBottomSheet(value: boolean) {}
     name!: string
-
+    canEdit:boolean = false;
     viewType: 'table' | 'list' = 'list'
     renderData : { [label: string]: string }={}
     label :string= ''
@@ -51,6 +51,10 @@ export class BottomsheetsComponent implements OnInit {
             message: 'Status',
             data: this.data,
         })
+    }
+
+    updateListValue(){
+
     }
 }
 

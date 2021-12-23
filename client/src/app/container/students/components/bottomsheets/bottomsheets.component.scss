@@ -3,24 +3,20 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: calc(35vh - 0.5rem) !important;
+    height: calc(45vh - 0.5rem) !important;
+    overflow-x: hidden;
   
 }
 
-.bottom-sheet div {
-  
-    // color: black;
-}
+
 button {
     margin-left: 5px;
     color: black !important;
 }
-button.change {
-    // color: white !important;
+
+
+#lists{
+    grid-template-columns: 0.7fr 1fr;
+    grid-gap: 0.5rem;
+    // border-bottom: 1px solid silver;
 }
-// :host ::ng-deep mat-bottom-sheet-container.mat-bottom-sheet-container[role="dialog"]{
-//     background-color: crimson;
-//     border-top-left-radius: 2rem !important;
-//     border-top-right-radius: 2rem !important;
-//     border:1px solid red
-// }

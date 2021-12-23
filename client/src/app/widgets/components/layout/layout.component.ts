@@ -45,7 +45,6 @@ export class RootLayoutComponent implements AfterViewInit {
         this.currentScreen = breakpointService.currentScreen
     }
 
-    ngOnInit(): void {}
 
     ngAfterViewInit() {
         this.observer
