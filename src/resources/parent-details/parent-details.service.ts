@@ -7,7 +7,6 @@ import { ParentDetails } from './entities/parent-detail.entity'
 
 @Injectable()
 export class ParentDetailsService {
-
     constructor(
         @InjectRepository(ParentDetails)
         private parentRepository: Repository<ParentDetails>

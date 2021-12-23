@@ -7,10 +7,9 @@ import { FeesDetails } from './entities/fees-detail.entity'
 
 @Injectable()
 export class FeesDetailsService {
-
     constructor(
         @InjectRepository(FeesDetails)
-        private studentRepository: Repository<FeesDetails>
+        private feesRepository: Repository<FeesDetails>
     ) {}
     create(createFeesDetailDto: CreateFeesDetailDto) {
         return 'This action adds a new feesDetail'
