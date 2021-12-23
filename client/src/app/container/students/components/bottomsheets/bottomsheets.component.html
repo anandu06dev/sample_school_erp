@@ -2,16 +2,16 @@
     <div class="card-header w-100 bg-transparent d-flex justify-content-between align-item-center">
         <div>{{label}}</div>
         <div>
-            <span>
+            <!-- <span>
                 <button mat-icon-button color="primary" aria-label="Example icon button with a menu icon" (click)="canEdit = !canEdit">
                     <mat-icon>edit</mat-icon>
-                    <!-- <mat-icon *ngIf="!canEdit">file</mat-icon> -->
-
+                    
                 </button>
-            </span>
+            </span> -->
+            <!-- <mat-icon *ngIf="!canEdit">file</mat-icon> -->
             <span>
-                <button mat-icon-button color="accent" aria-label="Example icon button with a menu icon">
-                    <mat-icon>delete</mat-icon>
+                <button mat-icon-button color="accent" aria-label="" (click)="clearBar()">
+                    <mat-icon>close</mat-icon>
                 </button>
             </span>
         </div>

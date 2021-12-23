@@ -1,6 +1,6 @@
 <!-- two line list -->
 
-<div class="card" id="mobileFriendlyLists" style="">
+<div class="card" id="mobileFriendlyLists">
 
   <mat-selection-list #studentListsUi [multiple]="false">
     <mat-list-option *ngFor="let student of _studentLists;odd as isOdd; even as isEven;" [value]="student"
@@ -11,7 +11,7 @@
       <div class="card border-0 bg-transparent">
 
         <div class="d-flex justify-content-between">
-          <h3 matLine class="text-capitalize title m-0">
+          <h3 matLine class="text-lowercase text-capitalize title m-0">
             {{student?.studentFirstName}} {{student?.studentLastName}}
           </h3>
           <div class="d-none d-md-block">

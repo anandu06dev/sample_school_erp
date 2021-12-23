@@ -12,6 +12,7 @@ export class FormsComponent implements OnInit {
     clearableInputs:{[key:string]:string} = {}
     studentForms!:FormGroup;
     classes:{label:string,value:string}[]=[]
+    gender:{label:string,value:string}[]=[{label:'Male',value:'male'},{label:'Female',value:'female'}]
    
 
     matcher = new MyErrorStateMatcher();

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core'
+import { Component, Input } from '@angular/core'
 import { MatBottomSheet } from '@angular/material/bottom-sheet'
 import { listAnimation } from '@utils/animations'
 import { BottomsheetsComponent, IShowTableOnBottomSheet } from '../bottomsheets/bottomsheets.component'
@@ -10,7 +10,7 @@ import { BottomsheetsComponent, IShowTableOnBottomSheet } from '../bottomsheets/
     styleUrls: ['./listview.component.scss'],
     animations: [listAnimation],
 })
-export class ListviewComponent implements OnInit {
+export class ListviewComponent  {
     _studentLists: any = []
 
     
@@ -21,22 +21,10 @@ export class ListviewComponent implements OnInit {
         console.log(value)
         this._studentLists = [...value]
     }
-    @Input() studentLists = [
-        {
-            from: 'Entity 1',
-            subject: 'Message Subject 1',
-            content: 'Message Content 1',
-        },
-        {
-            from: 'Entity 2',
-            subject: 'Message Subject 2',
-            content: 'Message Content 2',
-        },
-    ]
-
+    @Input() studentLists = []
     constructor(private bottomSheet: MatBottomSheet) {}
 
-    ngOnInit(): void {}
+    
 
     openBottomSheet(student:any) {
       let forBottomSheet:IShowTableOnBottomSheet;
@@ -50,24 +38,15 @@ export class ListviewComponent implements OnInit {
           label:'Student lists'
         }
       });
-      sheetRef.afterDismissed().subscribe( data => {
-        console.log('after close data :', data);
-        if(data && data.message=='Cancel') {
-          alert('Cancel was clicked in bottomsheet');
-        } if(data && data.message=='Status') {
-          alert('Change Status was clicked in bottomsheet');
-        }
-      });
+      // sheetRef.afterDismissed().subscribe( data => {
+      //   console.log('after close data :', data);
+      //   if(data && data.message=='Cancel') {
+      //     alert('Cancel was clicked in bottomsheet');
+      //   } if(data && data.message=='Status') {
+      //     alert('Change Status was clicked in bottomsheet');
+      //   }
+      // });
     }
 
   
-}
-export interface Section {
-  name: string;
-  updated: Date;
-  message: string;
-}
-export interface Food {
-  value: string;
-  viewValue: string;
 }
