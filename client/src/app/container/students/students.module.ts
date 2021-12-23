@@ -21,7 +21,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker'
 import { SharedModule } from '@shared/shared.module'
 import { MatInputModule } from '@angular/material/input'
 import { MatSelectModule } from '@angular/material/select'
-import { MatNativeDateModule } from '@angular/material/core'
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
     declarations: [
@@ -31,6 +31,7 @@ import { MatNativeDateModule } from '@angular/material/core'
         FormsComponent,
         BottomsheetsComponent,
         BottomsheetPipe,
+        
     ],
     imports: [
         CommonModule,

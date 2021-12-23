@@ -1,8 +1,11 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, OnInit, TemplateRef } from '@angular/core'
 import { BreakPointService } from '@shared/services/breakpoint.service'
 import { IStudentDetails } from '@utils/interfaces/studentData'
 import { Observable } from 'rxjs'
-import { defaultColDefinition, studentDetailColDef } from './studentTableDefinition'
+import {
+    defaultColDefinition,
+    studentDetailColDef,
+} from './studentTableDefinition'
 import { studentTable } from './studentTableMockData'
 
 @Component({
@@ -13,7 +16,24 @@ import { studentTable } from './studentTableMockData'
 export class StudentsComponent implements OnInit {
     public currentScreen$!: Observable<string>
     headerPosition: 'above' | 'below' = 'above'
-    
+
+    matTabMenu: { label: string; view: string; icon?: string }[] = [
+        {
+            label: 'table',
+            view: 'tableView',
+            icon: 'table_view',
+        },
+        {
+            label: 'lists',
+            view: 'listView',
+            icon: 'list_view',
+        },
+        {
+            icon: 'fact_check',
+            view: 'formsView',
+            label: 'Forms',
+        },
+    ]
 
     studentColDef: any = []
     studentRowData: IStudentDetails[] = []

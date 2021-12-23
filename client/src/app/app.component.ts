@@ -55,7 +55,7 @@ export class AppComponent {
                     if (result.breakpoints[query]) {
                         let currentScreenSize =
                             this.displayNameMap.get(query) ?? 'Unknown'
-                        breakPointService.currentScreen = currentScreenSize
+                        breakPointService.currentScreen = currentScreenSize;
                     }
                 }
             })
@@ -65,16 +65,13 @@ export class AppComponent {
         this.destroyed.next()
         this.destroyed.complete()
     }
-    ngOnInit(): void {
-
-    
+    ngOnInit(): void {    
         setTimeout(() => {
             this.loadLayout$ = of(false)
         },0.5 * 1000)
     }
 
     loadRouteToStorage(menu:IToolBarMenu):void{
-        this.selectedMenu = {...menu};
-        
+        this.selectedMenu = {...menu};        
     }
 }
